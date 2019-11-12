@@ -1,8 +1,7 @@
 import React from "react";
-
 import Logo from "../images/deliveroo.png";
 
-const Header = () => {
+const Header = props => {
   return (
     <header>
       <div className="wrapper">
