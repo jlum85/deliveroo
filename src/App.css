@@ -1,22 +1,163 @@
-.App {
-  text-align: center;
+header {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+  border-bottom: 0.2px solid rgb(147, 158, 158);
 }
 
-.App-logo {
-  height: 40vmin;
+.wrapper {
+  width: 1000px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.logo {
+  height: 50px;
+}
+
+.restaurant {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 257px;
+  /* width: 1000px; */
+  /* padding: 30px; */
+}
+
+.wrapperResto {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 1200px;
+}
+
+.restoInfo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* padding-left: 50px; */
+  width: 850px;
+}
+
+.colImg {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100%;
+  width: 350px;
+}
+.restoImg {
+  height: 200px;
+  border-radius: 5px;
 }
 
-.App-link {
-  color: #09d3ac;
+.restoTitle {
+  font-weight: bold;
+  font-size: 32px;
+  margin: 0;
+}
+
+.restoDesc {
+  color: #868a8a;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  background-color: rgb(230, 232, 232);
+  display: flex;
+  flex-direction: row;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-end; */
+  align-items: flex-end;
+  width: 70%;
+}
+
+.flexMenu {
+  /* width: 70%; */
+  width: 830px;
+  /* display: flex; */
+}
+.cardList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.catMenu {
+  /* background-color: red; */
+  /* border: solid; */
+  width: 100%;
+
+  padding: 10px;
+}
+
+.titleMenu {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card {
+  height: 160px;
+  width: 40%;
+  padding: 10px;
+  background-color: white;
+  /* border: solid; */
+  margin: 0 10px;
+}
+
+.titleCard {
+  font-size: 19px;
+}
+
+.descCard {
+  font-size: 0.9rem;
+  color: #808484;
+  line-height: 1.3rem;
+  height: 2.6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 0 1rem;
+}
+
+.priceCard {
+  color: #808484;
+}
+
+.cart {
+  padding-top: 30px;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.cartItem {
+  background-color: white;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.validCart {
+  height: 50px;
+  background-color: rgb(177, 187, 187);
+  color: rgb(131, 147, 148);
+  width: 330px;
+  text-align: center;
+}
+
+.emptyCart {
+  color: rgb(125, 130, 130);
 }
