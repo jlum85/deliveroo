@@ -43,8 +43,10 @@ const CartProduct = props => {
         </svg>
       </div>
 
-      <span>{item.title}</span>
-      <span>{(item.price * item.count).toFixed(2)} € </span>
+      <div className="product-item-middle">{item.title}</div>
+      <div className="product-item-right">
+        {(item.price * item.count).toFixed(2)} €{" "}
+      </div>
     </div>
   );
 };

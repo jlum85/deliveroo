@@ -1,4 +1,5 @@
 import React from "react";
+import ReplacementImage from "../images/deliveroo.png";
 
 const Card = props => {
   const item = props.meal;
@@ -48,7 +49,15 @@ const Card = props => {
       </div>
       <div className="cardImage">
         {item.picture ? (
-          <img className="mealImg" src={item.picture} alt="Plat"></img>
+          <img
+            className="mealImg"
+            src={item.picture}
+            alt="Plat"
+            onError={e => {
+              // e.target.src = ReplacementImage;
+              e.target.style = "display: none;"; //pb sur l'image de  Bircher Muesli
+            }}
+          ></img>
         ) : (
           <></>
         )}

@@ -16,7 +16,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [restaurant, setRestaurant] = useState({});
   const [menu, setMenus] = useState({});
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(data);
 
   const getActiveMenu = objMenus => {
     const keys = Object.keys(objMenus);

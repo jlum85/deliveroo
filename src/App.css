@@ -8,7 +8,11 @@ header {
 }
 
 .wrapper {
-  width: 1200px;
+  margin: 0 auto;
+  width: 96vw;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
 }
 
 .logo {
@@ -121,6 +125,10 @@ header {
   justify-content: space-between;
   margin-bottom: 25px;
   cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: -1px 5px 15px 0 rgba(0, 0, 0, 0.75);
 }
 
 .titleCard {
