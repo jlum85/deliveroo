@@ -9,16 +9,14 @@ import axios from "axios";
 
 function App() {
   const data = [
-    { title: "Brunch vegan", count: 2, price: 25 },
-    { title: "Granola parfait bio", count: 3, price: 6.6 }
+    { id: "1519055545-89", title: "Brunch vegan", count: 2, price: 25 },
+    { id: "1519055545-92", title: "Granola parfait bio", count: 3, price: 6.6 }
   ];
 
   const [isLoading, setIsLoading] = useState(true);
   const [restaurant, setRestaurant] = useState({});
   const [menu, setMenus] = useState({});
-  const [cart, setCart] = useState([]);
-
-  // console.log("render app : " + isLoading);
+  const [products, setProducts] = useState([]);
 
   const getActiveMenu = objMenus => {
     const keys = Object.keys(objMenus);
@@ -31,11 +29,50 @@ function App() {
     return obj;
   };
 
+  const getIndexFromId = idToFind => {
+    return products.findIndex(obj => obj.id === idToFind);
+  };
+
+  const moreProduct = product => {
+    const newProducts = [...products];
+    const idx = getIndexFromId(product.id);
+    if (idx === -1) {
+      newProducts.push({
+        id: product.id,
+        title: product.title,
+        count: 1,
+        price: product.price
+      });
+    } else {
+      newProducts[idx].count = newProducts[idx].count + 1;
+    }
+    setProducts(newProducts);
+  };
+
+  const lessProduct = product => {
+    const newProducts = [...products];
+    const idx = getIndexFromId(product.id);
+    if (idx >= 0) {
+      newProducts[idx].count = newProducts[idx].count - 1;
+      if (newProducts[idx].count === 0) {
+        newProducts.splice(idx, 1);
+      }
+    }
+    setProducts(newProducts);
+  };
+
+  const onClickAdd = product => {
+    moreProduct(product);
+  };
+
+  const onClickLess = product => {
+    lessProduct(product);
+  };
+
   const fetchData = async () => {
     const response = await axios.get("https://deliveroo-api.now.sh/menu");
     setRestaurant(response.data.restaurant);
     setMenus({ ...getActiveMenu(response.data.menu) });
-    console.log("fetch data");
   };
 
   // A la création
@@ -55,8 +92,12 @@ function App() {
           <Restaurant restaurant={restaurant} />
           <div className="container">
             <div className="wrapperMenu">
-              <Content menu={menu} />
-              <Cart cart={cart} />
+              <Content menu={menu} onClickAdd={onClickAdd} />
+              <Cart
+                products={products}
+                onClickAdd={onClickAdd}
+                onClickLess={onClickLess}
+              />
             </div>
           </div>
         </>

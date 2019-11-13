@@ -2,9 +2,16 @@ import React from "react";
 
 const Card = props => {
   const item = props.meal;
+  // console.log("card: ", item);
+  // console.log(props);
 
   return (
-    <div className="card">
+    <div
+      className="card"
+      onClick={() => {
+        props.onClickAdd(item);
+      }}
+    >
       <div className="cardInfo">
         <p className="titleCard">{item.title}</p>
 

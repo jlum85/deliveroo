@@ -1,36 +1,43 @@
 import React from "react";
+import CartProduct from "./CartProduct";
+import CartTotal from "./CartTotal";
+import "./Cart.css";
 
 const Cart = props => {
-  const bCart = props.cart.length > 0;
+  const bCart = props.products.length > 0;
   const shippingCost = 2.5;
   const getCartItem = () => {
-    const elements = props.cart.map((item, index) => {
+    const elements = props.products.map((item, index) => {
       return (
-        <p>
-          {item.title} : {item.price} * {item.count} = {item.price * item.count}
-        </p>
+        <CartProduct
+          key={item.id}
+          product={item}
+          onClickAdd={props.onClickAdd}
+          onClickLess={props.onClickLess}
+        />
       );
     });
     return <>{elements}</>;
   };
 
-  const getSubTotal = () => {
-    return 60; // faire un reduce
-  };
+  const subTotal = props.products.reduce(
+    (sum, item) => sum + item.price * item.count,
+    0
+  );
 
   return (
     <div className="cart">
       <div className="cartItem">
-        {/* <button className="validCart btnDisabled">Valider mon panier</button> */}
-        <button className={bCart ? "validCart" : "validCart btnDisabled"}>
-          Valider mon panier
-        </button>
+        <div className="cartHeader">
+          <button className={bCart ? "validCart" : "validCart btnDisabled"}>
+            Valider mon panier
+          </button>
+        </div>
+
         {bCart ? (
           <>
-            <div>{getCartItem()} </div>
-            <p> Sous-total : {shippingCost} €</p>
-            <p> Frais de livraison : {getSubTotal()} €</p>
-            <p> Total : {getSubTotal() + shippingCost} €</p>
+            <div className="products subTotal">{getCartItem()} </div>
+            <CartTotal subTotal={subTotal} shippingCost={shippingCost} />
           </>
         ) : (
           <div className="emptyCart"> Votre panier est vide</div>

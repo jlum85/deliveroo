@@ -8,7 +8,9 @@ const Menu = props => {
   const getCards = () => {
     const tab = props.menu;
     const elements = tab.map((item, index) => {
-      return <Card key={item.id} meal={item}></Card>;
+      return (
+        <Card key={item.id} meal={item} onClickAdd={props.onClickAdd}></Card>
+      );
     });
     return elements;
   };
