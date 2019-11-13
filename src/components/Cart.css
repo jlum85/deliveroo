@@ -26,9 +26,29 @@
   /* overflow-x: hidden; */
 }
 
-.validCart {
+.cartHeader {
   display: flex;
-  width: 330px;
+  align-items: center;
+  padding: 4px;
+}
+
+.clearCart {
+  background: #00cdbd;
+  margin-left: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.clearCartDisabled {
+  margin-left: 20px;
+  background: #bac3c3;
+  color: #8b9a9b;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.validCart {
   border-radius: 5px;
   background: #00cdbd;
   color: #fff;
@@ -36,7 +56,6 @@
   font-weight: 700;
   font-size: 1rem;
   justify-content: center;
-  /* flex-grow: 1; */
   height: 50px;
   flex: 1 1;
 }
@@ -44,6 +63,7 @@
 .btnDisabled {
   background: #bac3c3;
   color: #8b9a9b;
+  /* height: 50px; */
 }
 
 .emptyCart {

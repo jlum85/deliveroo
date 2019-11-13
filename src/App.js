@@ -61,6 +61,10 @@ function App() {
     setProducts(newProducts);
   };
 
+  const onClickRemove = () => {
+    setProducts([]);
+  };
+
   const onClickAdd = product => {
     moreProduct(product);
   };
@@ -97,6 +101,7 @@ function App() {
                 products={products}
                 onClickAdd={onClickAdd}
                 onClickLess={onClickLess}
+                onClickRemove={onClickRemove}
               />
             </div>
           </div>
